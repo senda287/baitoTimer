@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <mata charset="UTF-8">
+        <meta name="description" content="バイトのモチベーションを上げるタイマーです。バイトの時給と時間を入力すると、バイトの残り時間を表示します。また、いくら稼いでいるかを10秒ごとに表示します。稼いだ金額が少しずつ増えるのは、バイトのモチベーション向上につながります。">
+        <title>バイトタイマー バイトの経過時間と稼いだ金額を表示</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!--google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+        <!--google fontここまで-->
+    </head>
+    <body class="page">
+        <h1 id="header">バイトタイマー</h1>
+        <form action="{% url 'clock' %}" method="post" id="index_form">
+            {% csrf_token %}
+            <div>
+                <div class="index_input">開始日</div>
+                <input type="date" name="inputStartDate" class="input_form"><br>
+                <div class="index_input">開始時刻</div>
+                <input type="time" name="inputStartTime" class="input_form">
+            </div>
+            <hr>
+            <div>
+                <div class="index_input">終了日</div>
+                <input type="date" name="inputFinishDate" class="input_form"><br>
+                <div class="index_input">終了時刻</div>
+                <input type="time" name="inputFinishTime" class="input_form">
+            </div>
+            <hr>
+            <div>
+                <div class="index_input">時給</div>
+                <input type="number" name="inputSalary" value="1000" class="input_form_salary"> 円
+            </div>
+            <div>
+                <button type="submit" id="index_btn">タイマーへ</button>
+            </div>
+        </form>
+    </body>
+</html>

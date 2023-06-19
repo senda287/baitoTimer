@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <mata charset="UTF-8">
+        <meta name="description" content="バイトのモチベーションを上げるタイマーです。バイトの時給と時間を入力すると、バイトの残り時間を表示します。また、いくら稼いでいるかを10秒ごとに表示します。稼いだ金額が少しずつ増えるのは、バイトのモチベーション向上につながります。">
+        <title>バイトタイマー バイトの経過時間と稼いだ金額を表示</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!--google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+        <!--google font ここまで-->
+    </head>
+    <body class="page">
+        <div>
+            <input hidden type="date" id="inputStartDate" value="{{inputStartDate}}">
+            <input hidden type="time" id="inputStartTime" value="{{inputStartTime}}">
+            <input hidden type="date" id="inputFinishDate" value="{{inputFinishDate}}">
+            <input hidden type="time" id="inputFinishTime" value="{{inputFinishTime}}">
+            <input hidden type="number" id="inputSalary" value="{{inputSalary}}">
+        </div>
+        <div id="mainTimer">
+            <div id="wall">
+                <div id="finish">終了！バイトして良かった！</div>
+                <div id="error">入力が正常ではありません</div>
+            </div>
+            <div id="clockState">
+                バイト残り時間 
+            </div>
+            <div id="Timer">
+                <span id="outputMin"></span>:<span id="outputSec"></span>
+            </div>
+            <div id="Salary">
+                <span id="outputSalary"></span> 円
+            </div>
+        </div>
+        <div>
+            <input type="button" id="clock_btn" value="表示" onclick="displayBtn()">
+        </div>
+        <script src="../../static/js/style.js"></script>
+    </body>
+</html>
