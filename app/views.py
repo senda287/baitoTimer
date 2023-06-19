@@ -18,3 +18,6 @@ def clock(request):
         'inputSalary':inputSalary,
     }
     return render(request,"app/clock.html",context)
+
+def google(request):
+    return render(request, 'app/google213d77350f25b686.html')
